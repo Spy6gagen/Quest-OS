@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest Splash</title>
+    <style>
+  body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#splash-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333; /* Change the background color as needed */
+}
+
+#splash-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+    </style>
+</head>
+<body>
+  <div id="splash-screen">
+    <video id="splash-video" autoplay muted loop>
+      <source src="QUESTf_intro.mp4" type="video/mp4">
+        Quest could not load splash screen. You may be using inferior hardware not supported by Quest!
+    </video>
+  </div>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var splashScreen = document.getElementById("splash-screen");
+  var video = document.getElementById("splash-video");
+
+  video.addEventListener("loadedmetadata", function() {
+    var duration = video.duration * 1000; // Convert duration to milliseconds
+
+    setTimeout(function() {
+      // Redirect to another page after the video duration
+      window.location.href = "versionupdatewarn.html";
+    }, duration);
+  });
+});
+
+
+    </script>
+</body>
+</html>
